@@ -1,32 +1,106 @@
-# React + TypeScript + Vite
+# Loan Origination System (LOS) – MVP
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A frontend MVP of a **Loan Origination System (LOS)** designed to demonstrate the end-to-end lending workflow from customer onboarding to loan disbursement.
 
-Currently, two official plugins are available:
+## 🚀 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* React
+* TypeScript
+* Vite
+* React Router
+* Axios
+* TanStack Query
+* JSON Server
+* CSS
 
-## React Compiler
+## 🔄 Loan Flow
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```text
+Customer
+   ↓
+Loan Application
+   ↓
+Eligibility Check
+   ↓
+Credit Check
+   ↓
+Underwriting
+   ↓
+Approve / Reject
+   ↓
+Sanction
+   ↓
+Ready for Disbursement
+   ↓
+Disbursement
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## 👥 Roles
+
+| Role                 | Responsibility                                       |
+| -------------------- | ---------------------------------------------------- |
+| SALES                | Customer and loan application creation               |
+| CREDIT_OFFICER       | Eligibility, credit check, underwriting and sanction |
+| DISBURSEMENT_OFFICER | Final loan disbursement                              |
+
+## 🏗️ Architecture
+
+```text
+React UI
+   ↓
+TanStack Query
+   ↓
+Service Layer
+   ↓
+Axios
+   ↓
+JSON Server
+   ↓
+db.json
+```
+
+The application is structured to allow the mock JSON Server API to be replaced later with a **Spring Boot REST API and relational database**.
+
+## ▶️ Running Locally
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the mock API:
+
+```bash
+npm run mock-api
+```
+
+Start the frontend in another terminal:
+
+```bash
+npm run dev
+```
+
+The mock API runs on:
+
+```text
+http://localhost:8000
+```
+
+## 📁 Main Structure
+
+```text
+src/
+├── components/
+├── pages/
+├── hooks/
+├── services/
+├── types/
+└── utils/
+
+db.json
+```
+
+## 🎯 Project Goal
+
+This project is an MVP/demo implementation intended to understand **LOS workflow, lending terminology, role-based permissions, frontend architecture, API integration, and the transition from a mock API to a production Spring Boot backend**.
